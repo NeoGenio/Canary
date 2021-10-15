@@ -1,0 +1,6 @@
+[
+    {
+        "name": "GCC 11.2.0 x86_64-elf",
+        "toolchainFile": "${workspaceFolder}/toolchain/CMakeToolchain.cmake"
+    }
+]

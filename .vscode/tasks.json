@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "make",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            }
+        },
+        {
+            "label": "Launch qemu",
+            "type": "shell",
+            "command": "qemu-system-x86_64 -S -gdb tcp::1234 -boot d -fda bin/Canary.img -m 512 &",
+            "problemMatcher": [],
+            "group": "build",
+            "dependsOn": [
+                "Build"
+            ] 
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "qemu-system-x86_64 -fda bin/Canary.img -m 512",
+            "problemMatcher": [],
+            "group": "build",
+            "dependsOn": [
+                "Build"
+            ] 
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch with gdb",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/bin/bootloader.bin",
+            "cwd": "${workspaceRoot}",
+            "args": [],
+            "targetArchitecture": "x86_64",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/local/bin/gdb",
+            "miDebuggerArgs": "",
+            "customLaunchSetupCommands": [
+                {
+                    "text": "target remote localhost:1234",
+                    "description": "Connect to qemu remote debugger"
+                }
+            ],
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Add breakpoint",
+                    "text": "b *0x7c00"
+                },
+                {
+                    "text": "break isr_handler",
+                    "description": "Break on exception handler."
+                }
+            ],
+            "preLaunchTask": "Launch qemu"
+        }
+    ],
+}
