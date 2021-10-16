@@ -31,3 +31,8 @@ Go into the 'bin' folder and run:
 ```
 $ qemu-system-x86_64 -fda bin/Canary.img
 ```
+
+## Resources used
+
+* [OSDev Wiki](https://wiki.osdev.org/Expanded_Main_Page)
+* [Operating System Development Guide](http://www.independent-software.com/operating-system-development.html)

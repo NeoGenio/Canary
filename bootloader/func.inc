@@ -15,3 +15,15 @@ print:
 print_done:
     ret
 .endfunc
+
+.func reboot
+reboot:
+	mov $rebootmsg, %si  # Load address of reboot message into si
+	call print   		 # print the string
+	mov $0x00, %ah
+	mov $0x00, %al
+	int $0x16            # wait for a key press
+	.byte 0xea           # machine language to jump to ffff:0000 (reboot)
+	.word 0x0000
+	.word 0xffff
+.endfunc
